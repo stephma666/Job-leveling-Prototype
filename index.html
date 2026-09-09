@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Leveling Request Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <h1>Job Leveling Requests</h1>
+      <p class="prototype-label">Prototype — Dummy Data Only</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HOME / REQUEST LIST -->
+    <section id="home-screen" class="screen active">
+
+      <div class="page-heading">
+        <div>
+          <h2>My Requests</h2>
+          <p>Submit and track job leveling requests.</p>
+        </div>
+
+        <button id="new-request-button" class="primary-button">
+          + New Request
+        </button>
+      </div>
+
+      <div class="card">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>Employee</th>
+              <th>Current Role</th>
+              <th>Proposed Level</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="request-table-body">
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEW REQUEST FORM -->
+    <section id="form-screen" class="screen">
+
+      <div class="page-heading">
+        <div>
+          <h2>New Job Leveling Request</h2>
+          <p>Provide the information needed to evaluate this request.</p>
+        </div>
+      </div>
+
+      <div class="card">
+
+        <form id="request-form">
+
+          <div class="form-grid">
+
+            <div class="form-field">
+              <label for="employee-name">
+                Employee Name
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="employee-name"
+                type="text"
+                placeholder="Example: Jordan Lee"
+                required
+              >
+            </div>
+
+
+            <div class="form-field">
+              <label for="employee-id">
+                Employee ID
+              </label>
+
+              <input
+                id="employee-id"
+                type="text"
+                placeholder="Example: 123456"
+              >
+            </div>
+
+
+            <div class="form-field">
+              <label for="current-title">
+                Current Job Title
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="current-title"
+                type="text"
+                placeholder="Example: Senior Product Manager"
+                required
+              >
+            </div>
+
+
+            <div class="form-field">
+              <label for="current-level">
+                Current Level
+                <span class="required">*</span>
+              </label>
+
+              <select id="current-level" required>
+                <option value="">Select level</option>
+                <option>IC3</option>
+                <option>IC4</option>
+                <option>IC5</option>
+                <option>IC6</option>
+                <option>M3</option>
+                <option>M4</option>
+                <option>M5</option>
+              </select>
+            </div>
+
+
+            <div class="form-field">
+              <label for="proposed-title">
+                Proposed Job Title
+              </label>
+
+              <input
+                id="proposed-title"
+                type="text"
+                placeholder="Example: Principal Product Manager"
+              >
+            </div>
+
+
+            <div class="form-field">
+              <label for="proposed-level">
+                Proposed Level
+                <span class="required">*</span>
+              </label>
+
+              <select id="proposed-level" required>
+                <option value="">Select level</option>
+                <option>IC3</option>
+                <option>IC4</option>
+                <option>IC5</option>
+                <option>IC6</option>
+                <option>M3</option>
+                <option>M4</option>
+                <option>M5</option>
+              </select>
+            </div>
+
+          </div>
+
+
+          <div class="form-field full-width">
+            <label for="rationale">
+              Business Rationale
+              <span class="required">*</span>
+            </label>
+
+            <textarea
+              id="rationale"
+              rows="6"
+              placeholder="Describe why a leveling review is being requested..."
+              required
+            ></textarea>
+
+            <div class="help-text">
+              Include changes in scope, complexity, accountability, or organizational impact.
+            </div>
+          </div>
+
+
+          <div class="button-row">
+
+            <button
+              type="button"
+              id="cancel-button"
+              class="secondary-button">
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              class="primary-button">
+              Review Request
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- REVIEW SCREEN -->
+    <section id="review-screen" class="screen">
+
+      <div class="page-heading">
+        <div>
+          <h2>Review Request</h2>
+          <p>Confirm the information before submitting.</p>
+        </div>
+      </div>
+
+      <div class="card">
+
+        <div id="review-content">
+        </div>
+
+        <div class="button-row">
+
+          <button
+            id="edit-button"
+            class="secondary-button">
+            Back to Edit
+          </button>
+
+          <button
+            id="submit-button"
+            class="primary-button">
+            Submit Request
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONFIRMATION -->
+    <section id="confirmation-screen" class="screen">
+
+      <div class="confirmation-card">
+
+        <div class="checkmark">✓</div>
+
+        <h2>Request Submitted</h2>
+
+        <p>
+          Your job leveling request has been submitted successfully.
+        </p>
+
+        <p>
+          Request ID:
+          <strong id="confirmation-request-id"></strong>
+        </p>
+
+        <button
+          id="return-home-button"
+          class="primary-button">
+          Return to My Requests
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
