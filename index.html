@@ -1,123 +1,1560 @@
-A
-Job Leveling
-PBP View Comp Team View
-Prototype only
-Dummy data
-Job Leveling Request
-Prototype integrated conceptually with Workday, Aware, and Talent Review.
+<!DOCTYPE html>
+<html lang="en">
 
-JL   Jordan Lee
-PBP View
-Submit and track a job leveling request.
+<head>
+  <meta charset="UTF-8">
 
-+ New Request
-All (4) Draft (1) In Review (1) Completed (2)
-Request ID	Employee	Current Role	Proposed Level	Status	Updated
-1 Employee
-2 Proposed Role
-3 Rationale
-4 Talent Review
-5 Review
-1. Find Employee
-Employee ID *
-123456
- Search
-Demo behavior: entering 123456 retrieves dummy employee information.
-Employee Information (from Workday)
-Retrieved
-NameJordan Lee
-Employee ID123456
-LocationSan Francisco (US)
-Current Job TitleSenior Product Manager
-Current LevelP6
-Job FamilyProduct
-Current ManagerTaylor Kim
-Manager TitleDirector, Product Management
-Current Organization Chart (from Aware)
-Read only
-Taylor Kim Director, Product Management · M4
-Jordan Lee Senior Product Manager · P6
-Alex WongProduct Manager · P4
-Morgan PatelProduct Manager · P4
-Sam LiuAssociate PM · P3
-2. Proposed Role
-Proposed Job Title * 
-Principal Product Manager
-Proposed Level * 
-Job Family * 
-Product
-Proposed Manager * 
-Chris Wong
-Manager Title 
-VP, Product Management
-Proposed Organization Chart (editable preview)
-Reset to Current
-Chris Wong VP, Product Management · VP2
-Jordan Lee Principal Product Manager · P7
-Alex WongProduct Manager · P4
-Morgan PatelProduct Manager · P4
-Sam LiuAssociate PM · P3
-3. Business Rationale
-Jordan has taken on significantly expanded scope over the past year, including leading a new strategic initiative, managing a larger team, and increasing cross-functional impact. This request reflects the growth in responsibility, complexity, and business impact.
-4. Talent Review Summary (PBP only)
-View Full Talent Profile ↗
-Overall Rating High Performer
-Promotion Readiness Ready for Promotion
-Key Strengths
-Strategic thinking
-Influence and stakeholder management
-People leadership
-Execution and delivery
-Development Area
-Scale organizational impact.
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-Save Draft Submit Request
-Comp Team View
-Review submitted requests, evaluate, and notify the PBP.
+  <title>Job Leveling Request Prototype</title>
 
-Internal Review
-Review Queue
-Request	Employee	Current	Proposed	Status
-Request JL-1050
-Submitted by Taylor Kim (PBP)
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+</head>
 
-In Review
-EmployeeJordan Lee
-Employee ID123456
-LocationSan Francisco (US)
-Current RoleSenior Product Manager · P6
-Current ManagerTaylor Kim
-Proposed RolePrincipal Product Manager · P7
-Proposed ManagerChris Wong
-Current Org Chart
-Taylor KimM4
-Jordan LeeP6
-Proposed Org Chart
-Chris WongVP2
-Jordan LeeP7
-Current Job Description
-Senior Product Manager (P6)
 
-Leads product strategy and execution for a major product area.
-Proposed Job Description
-Principal Product Manager (P7)
+<body>
 
-Defines long-term product strategy across multiple products or a major business area.
-Business Rationale
-Talent Review is intentionally not displayed in the Compensation Team view.
-Discussion & Evaluation
-Questions / Comments 
-Add questions or comments for the PBP...
+  <div class="app-shell">
 
-Sarah Smith · Compensation Partner
-Can you provide more detail on the scope of the new strategic initiative?
 
-Evaluation Result
- Recommend Approval  Recommend Alternative  Not Approved
-Recommended Level 
- Summary / Notes * 
-Document evaluation, considerations, and final recommendation...
+    <!-- =====================================================
+         LEFT NAVIGATION
+    ====================================================== -->
 
-  Share evaluation summary with PBP
-Save Draft Submit Decision & Notify PBP
-Decision submitted. The PBP has been notified.
+    <aside class="sidebar">
+
+      <div class="brand">
+        A
+      </div>
+
+      <div class="brand-text">
+        Job Leveling
+      </div>
+
+
+      <nav>
+
+        <button
+          class="nav-link active"
+          data-view="pbp"
+        >
+          PBP View
+        </button>
+
+
+        <button
+          class="nav-link"
+          data-view="comp"
+        >
+          Comp Team View
+        </button>
+
+      </nav>
+
+
+      <div class="sidebar-note">
+        Prototype only
+        <br>
+        Dummy data
+      </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main">
+
+
+      <!-- TOP HEADER -->
+
+      <header class="topbar">
+
+        <div>
+
+          <h1>
+            Job Leveling Request
+          </h1>
+
+          <p>
+            Prototype integrated conceptually with Workday,
+            Aware, and Talent Review.
+          </p>
+
+        </div>
+
+
+        <div class="user-pill">
+          JL &nbsp;&nbsp; Jordan Lee
+        </div>
+
+      </header>
+
+
+
+      <!-- =====================================================
+           PBP VIEW
+      ====================================================== -->
+
+      <section
+        id="pbp-view"
+        class="view active"
+      >
+
+
+        <div class="section-heading">
+
+          <div>
+
+            <h2>
+              PBP View
+            </h2>
+
+            <p>
+              Submit and track a job leveling request.
+            </p>
+
+          </div>
+
+
+          <button
+            class="btn primary"
+            id="new-request-btn"
+          >
+            + New Request
+          </button>
+
+        </div>
+
+
+
+        <!-- PBP DASHBOARD -->
+
+        <div
+          class="card"
+          id="pbp-dashboard"
+        >
+
+
+          <div class="tabs">
+
+            <button class="tab active">
+              All (4)
+            </button>
+
+            <button class="tab">
+              Draft (1)
+            </button>
+
+            <button class="tab">
+              In Review (1)
+            </button>
+
+            <button class="tab">
+              Completed (2)
+            </button>
+
+          </div>
+
+
+
+          <div class="table-wrap">
+
+            <table>
+
+              <thead>
+
+                <tr>
+
+                  <th>
+                    Request ID
+                  </th>
+
+                  <th>
+                    Employee
+                  </th>
+
+                  <th>
+                    Current Role
+                  </th>
+
+                  <th>
+                    Proposed Level
+                  </th>
+
+                  <th>
+                    Status
+                  </th>
+
+                  <th>
+                    Updated
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody id="pbp-request-table">
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NEW REQUEST FORM
+        ================================================== -->
+
+        <div
+          id="pbp-form"
+          class="hidden"
+        >
+
+
+          <!-- STEPS -->
+
+          <div class="stepper">
+
+            <div class="step active">
+              <span>1</span>
+              Employee
+            </div>
+
+            <div class="step">
+              <span>2</span>
+              Proposed Role
+            </div>
+
+            <div class="step">
+              <span>3</span>
+              Rationale
+            </div>
+
+            <div class="step">
+              <span>4</span>
+              Talent Review
+            </div>
+
+            <div class="step">
+              <span>5</span>
+              Review
+            </div>
+
+          </div>
+
+
+
+          <div class="grid two">
+
+
+            <!-- =============================================
+                 LEFT SIDE: CURRENT EMPLOYEE
+            ============================================== -->
+
+            <section class="card">
+
+
+              <h3>
+                1. Find Employee
+              </h3>
+
+
+              <div class="form-row">
+
+                <label>
+                  Employee ID *
+                </label>
+
+
+                <div class="inline">
+
+                  <input
+                    id="employee-id"
+                    value="123456"
+                  >
+
+
+                  <button
+                    class="btn primary"
+                    id="lookup-btn"
+                  >
+                    Search
+                  </button>
+
+                </div>
+
+
+                <small>
+                  Demo: Employee ID 123456 retrieves
+                  dummy employee information.
+                </small>
+
+              </div>
+
+
+
+              <!-- EMPLOYEE INFORMATION -->
+
+              <div
+                id="employee-panel"
+                class="subcard"
+              >
+
+
+                <div class="subcard-title">
+
+                  <h4>
+                    Employee Information
+
+                    <span class="source">
+                      (from Workday)
+                    </span>
+
+                  </h4>
+
+
+                  <span class="badge success">
+                    Retrieved
+                  </span>
+
+                </div>
+
+
+
+                <div class="detail-grid">
+
+
+                  <div>
+
+                    <label>
+                      Name
+                    </label>
+
+                    <strong>
+                      Jordan Lee
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <label>
+                      Employee ID
+                    </label>
+
+                    <strong>
+                      123456
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <label>
+                      Location
+                    </label>
+
+                    <strong>
+                      San Francisco (US)
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <label>
+                      Current Job Title
+                    </label>
+
+                    <strong>
+                      Senior Product Manager
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <label>
+                      Current Level
+                    </label>
+
+                    <strong>
+                      P6
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <label>
+                      Job Family
+                    </label>
+
+                    <strong>
+                      Product
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <label>
+                      Current Manager
+                    </label>
+
+                    <strong>
+                      Taylor Kim
+                    </strong>
+
+                  </div>
+
+
+                  <div>
+
+                    <label>
+                      Manager Title
+                    </label>
+
+                    <strong>
+                      Director, Product Management
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- CURRENT ORG CHART -->
+
+              <div class="subcard">
+
+
+                <div class="subcard-title">
+
+                  <h4>
+
+                    Current Organization Chart
+
+                    <span class="source">
+                      (from Aware)
+                    </span>
+
+                  </h4>
+
+
+                  <span class="badge neutral">
+                    Read only
+                  </span>
+
+                </div>
+
+
+
+                <div class="org-chart">
+
+
+                  <div class="org-node manager">
+
+                    <strong>
+                      Taylor Kim
+                    </strong>
+
+                    <span>
+                      Director, Product Management · M4
+                    </span>
+
+                  </div>
+
+
+                  <div class="connector">
+                  </div>
+
+
+                  <div class="org-node current">
+
+                    <strong>
+                      Jordan Lee
+                    </strong>
+
+                    <span>
+                      Senior Product Manager · P6
+                    </span>
+
+                  </div>
+
+
+                  <div class="connector">
+                  </div>
+
+
+                  <div class="org-team">
+
+
+                    <div class="org-node small">
+
+                      <strong>
+                        Alex Wong
+                      </strong>
+
+                      <span>
+                        Product Manager · P4
+                      </span>
+
+                    </div>
+
+
+                    <div class="org-node small">
+
+                      <strong>
+                        Morgan Patel
+                      </strong>
+
+                      <span>
+                        Product Manager · P4
+                      </span>
+
+                    </div>
+
+
+                    <div class="org-node small">
+
+                      <strong>
+                        Sam Liu
+                      </strong>
+
+                      <span>
+                        Associate PM · P3
+                      </span>
+
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 RIGHT SIDE: PROPOSED ROLE
+            ============================================== -->
+
+            <section class="card">
+
+
+              <h3>
+                2. Proposed Role
+              </h3>
+
+
+
+              <div class="form-grid">
+
+
+                <div>
+
+                  <label>
+                    Proposed Job Title *
+                  </label>
+
+                  <input
+                    id="proposed-title"
+                    value="Principal Product Manager"
+                  >
+
+                </div>
+
+
+
+                <div>
+
+                  <label>
+                    Proposed Level *
+                  </label>
+
+                  <select id="proposed-level">
+                  </select>
+
+                </div>
+
+
+
+                <div>
+
+                  <label>
+                    Job Family *
+                  </label>
+
+                  <select>
+
+                    <option>
+                      Product
+                    </option>
+
+                    <option>
+                      Engineering
+                    </option>
+
+                    <option>
+                      Design
+                    </option>
+
+                    <option>
+                      Finance
+                    </option>
+
+                    <option>
+                      People
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+
+                <div>
+
+                  <label>
+                    Proposed Manager *
+                  </label>
+
+                  <input
+                    id="proposed-manager"
+                    value="Chris Wong"
+                  >
+
+                </div>
+
+
+
+                <div>
+
+                  <label>
+                    Manager Title
+                  </label>
+
+                  <input
+                    value="VP, Product Management"
+                    readonly
+                  >
+
+                </div>
+
+              </div>
+
+
+
+              <!-- PROPOSED ORG CHART -->
+
+              <div class="subcard">
+
+
+                <div class="subcard-title">
+
+                  <h4>
+
+                    Proposed Organization Chart
+
+                    <span class="source">
+                      (editable preview)
+                    </span>
+
+                  </h4>
+
+
+                  <button
+                    class="link-btn"
+                    id="reset-org"
+                  >
+                    Reset to Current
+                  </button>
+
+                </div>
+
+
+
+                <div class="org-chart">
+
+
+                  <div class="org-node manager proposed">
+
+                    <strong id="chart-manager">
+                      Chris Wong
+                    </strong>
+
+                    <span>
+                      VP, Product Management · VP2
+                    </span>
+
+                  </div>
+
+
+                  <div class="connector">
+                  </div>
+
+
+                  <div class="org-node current proposed">
+
+                    <strong>
+                      Jordan Lee
+                    </strong>
+
+                    <span id="chart-role">
+                      Principal Product Manager · P7
+                    </span>
+
+                  </div>
+
+
+                  <div class="connector">
+                  </div>
+
+
+                  <div class="org-team">
+
+
+                    <div class="org-node small">
+
+                      <strong>
+                        Alex Wong
+                      </strong>
+
+                      <span>
+                        Product Manager · P4
+                      </span>
+
+                    </div>
+
+
+                    <div class="org-node small">
+
+                      <strong>
+                        Morgan Patel
+                      </strong>
+
+                      <span>
+                        Product Manager · P4
+                      </span>
+
+                    </div>
+
+
+                    <div class="org-node small">
+
+                      <strong>
+                        Sam Liu
+                      </strong>
+
+                      <span>
+                        Associate PM · P3
+                      </span>
+
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- BUSINESS RATIONALE -->
+
+              <div class="subcard">
+
+
+                <h4>
+                  3. Business Rationale
+                </h4>
+
+
+                <textarea
+                  id="rationale"
+                  rows="7"
+                >Jordan has taken on significantly expanded scope over the past year, including leading a new strategic initiative, managing a larger team, and increasing cross-functional impact. This request reflects the growth in responsibility, complexity, and business impact.</textarea>
+
+              </div>
+
+
+
+              <!-- ===========================================
+                   TALENT REVIEW
+                   PBP VIEW ONLY
+              ============================================ -->
+
+              <div class="subcard talent-card">
+
+
+                <div class="subcard-title">
+
+
+                  <h4>
+
+                    4. Talent Review Summary
+
+                    <span class="source">
+                      (PBP only)
+                    </span>
+
+                  </h4>
+
+
+                  <button class="link-btn">
+                    View Full Talent Profile ↗
+                  </button>
+
+                </div>
+
+
+
+                <div class="talent-grid">
+
+
+                  <div>
+
+                    <label>
+                      Overall Rating
+                    </label>
+
+                    <span class="badge success">
+                      High Performer
+                    </span>
+
+                  </div>
+
+
+
+                  <div>
+
+                    <label>
+                      Promotion Readiness
+                    </label>
+
+                    <span class="badge success">
+                      Ready for Promotion
+                    </span>
+
+                  </div>
+
+
+                </div>
+
+
+
+                <h5>
+                  Key Strengths
+                </h5>
+
+
+                <ul>
+
+                  <li>
+                    Strategic thinking
+                  </li>
+
+                  <li>
+                    Influence and stakeholder management
+                  </li>
+
+                  <li>
+                    People leadership
+                  </li>
+
+                  <li>
+                    Execution and delivery
+                  </li>
+
+                </ul>
+
+
+
+                <h5>
+                  Development Area
+                </h5>
+
+
+                <p>
+                  Scale organizational impact.
+                </p>
+
+
+              </div>
+
+
+
+              <!-- ACTION BUTTONS -->
+
+              <div class="actions">
+
+
+                <button
+                  class="btn secondary"
+                  id="save-draft-btn"
+                >
+                  Save Draft
+                </button>
+
+
+                <button
+                  class="btn primary"
+                  id="submit-request-btn"
+                >
+                  Submit Request
+                </button>
+
+
+              </div>
+
+
+            </section>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================================
+           COMPENSATION TEAM VIEW
+      ====================================================== -->
+
+      <section
+        id="comp-view"
+        class="view"
+      >
+
+
+        <div class="section-heading">
+
+
+          <div>
+
+            <h2>
+              Comp Team View
+            </h2>
+
+            <p>
+              Review submitted requests, evaluate,
+              and notify the PBP.
+            </p>
+
+          </div>
+
+
+          <span class="badge warning">
+            Internal Review
+          </span>
+
+
+        </div>
+
+
+
+        <div class="grid comp-layout">
+
+
+
+          <!-- REVIEW QUEUE -->
+
+          <section class="card">
+
+
+            <h3>
+              Review Queue
+            </h3>
+
+
+            <div class="table-wrap">
+
+
+              <table>
+
+
+                <thead>
+
+                  <tr>
+
+                    <th>
+                      Request
+                    </th>
+
+                    <th>
+                      Employee
+                    </th>
+
+                    <th>
+                      Current
+                    </th>
+
+                    <th>
+                      Proposed
+                    </th>
+
+                    <th>
+                      Status
+                    </th>
+
+                  </tr>
+
+                </thead>
+
+
+                <tbody id="comp-queue-table">
+                </tbody>
+
+
+              </table>
+
+            </div>
+
+
+          </section>
+
+
+
+          <!-- REQUEST DETAILS -->
+
+          <section class="card">
+
+
+            <div class="subcard-title">
+
+
+              <div>
+
+                <h3>
+                  Request JL-1050
+                </h3>
+
+                <p class="muted">
+                  Submitted by Taylor Kim (PBP)
+                </p>
+
+              </div>
+
+
+              <span class="badge warning">
+                In Review
+              </span>
+
+
+            </div>
+
+
+
+            <!-- EMPLOYEE DETAILS -->
+
+            <div class="detail-grid">
+
+
+              <div>
+
+                <label>
+                  Employee
+                </label>
+
+                <strong>
+                  Jordan Lee
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <label>
+                  Employee ID
+                </label>
+
+                <strong>
+                  123456
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <label>
+                  Location
+                </label>
+
+                <strong>
+                  San Francisco (US)
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <label>
+                  Current Role
+                </label>
+
+                <strong>
+                  Senior Product Manager · P6
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <label>
+                  Current Manager
+                </label>
+
+                <strong>
+                  Taylor Kim
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <label>
+                  Proposed Role
+                </label>
+
+                <strong>
+                  Principal Product Manager · P7
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <label>
+                  Proposed Manager
+                </label>
+
+                <strong>
+                  Chris Wong
+                </strong>
+
+              </div>
+
+
+            </div>
+
+
+
+            <!-- CURRENT AND PROPOSED ORG CHARTS -->
+
+            <div class="grid two compact">
+
+
+              <div class="subcard">
+
+
+                <h4>
+                  Current Org Chart
+                </h4>
+
+
+                <div class="org-chart mini">
+
+
+                  <div class="org-node manager">
+
+                    <strong>
+                      Taylor Kim
+                    </strong>
+
+                    <span>
+                      M4
+                    </span>
+
+                  </div>
+
+
+                  <div class="connector">
+                  </div>
+
+
+                  <div class="org-node current">
+
+                    <strong>
+                      Jordan Lee
+                    </strong>
+
+                    <span>
+                      P6
+                    </span>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+
+              <div class="subcard">
+
+
+                <h4>
+                  Proposed Org Chart
+                </h4>
+
+
+                <div class="org-chart mini">
+
+
+                  <div class="org-node manager proposed">
+
+                    <strong>
+                      Chris Wong
+                    </strong>
+
+                    <span>
+                      VP2
+                    </span>
+
+                  </div>
+
+
+                  <div class="connector">
+                  </div>
+
+
+                  <div class="org-node current proposed">
+
+                    <strong>
+                      Jordan Lee
+                    </strong>
+
+                    <span>
+                      P7
+                    </span>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+
+            <!-- JOB DESCRIPTIONS -->
+
+            <div class="grid two compact">
+
+
+              <div class="subcard">
+
+                <h4>
+                  Current Job Description
+                </h4>
+
+                <p>
+                  Senior Product Manager (P6)
+                </p>
+
+                <small>
+                  Leads product strategy and execution
+                  for a major product area.
+                </small>
+
+              </div>
+
+
+
+              <div class="subcard">
+
+                <h4>
+                  Proposed Job Description
+                </h4>
+
+                <p>
+                  Principal Product Manager (P7)
+                </p>
+
+                <small>
+                  Defines long-term product strategy
+                  across multiple products or a major
+                  business area.
+                </small>
+
+              </div>
+
+
+            </div>
+
+
+
+            <!-- RATIONALE -->
+
+            <div class="subcard">
+
+              <h4>
+                Business Rationale
+              </h4>
+
+              <p id="comp-rationale">
+              </p>
+
+            </div>
+
+
+
+            <!-- IMPORTANT: NO TALENT REVIEW -->
+
+            <div class="notice">
+
+              Talent Review is intentionally not displayed
+              in the Compensation Team view.
+
+            </div>
+
+
+          </section>
+
+
+
+          <!-- =================================================
+               DISCUSSION AND EVALUATION
+          ================================================== -->
+
+          <section class="card">
+
+
+            <h3>
+              Discussion & Evaluation
+            </h3>
+
+
+
+            <label>
+              Questions / Comments
+            </label>
+
+
+            <textarea
+              id="comp-comments"
+              rows="7"
+              placeholder="Add questions or comments for the PBP..."
+            ></textarea>
+
+
+
+            <div class="comment-thread">
+
+
+              <div class="comment">
+
+                <strong>
+                  Sarah Smith · Compensation Partner
+                </strong>
+
+                <p>
+                  Can you provide more detail on the scope
+                  of the new strategic initiative?
+                </p>
+
+              </div>
+
+
+            </div>
+
+
+
+            <!-- EVALUATION -->
+
+            <label>
+              Evaluation Result
+            </label>
+
+
+            <div class="radio-group">
+
+
+              <label>
+
+                <input
+                  type="radio"
+                  name="decision"
+                  value="Recommend Approval"
+                  checked
+                >
+
+                Recommend Approval
+
+              </label>
+
+
+
+              <label>
+
+                <input
+                  type="radio"
+                  name="decision"
+                  value="Recommend Alternative"
+                >
+
+                Recommend Alternative
+
+              </label>
+
+
+
+              <label>
+
+                <input
+                  type="radio"
+                  name="decision"
+                  value="Not Approved"
+                >
+
+                Not Approved
+
+              </label>
+
+
+            </div>
+
+
+
+            <label>
+              Recommended Level
+            </label>
+
+
+            <select id="recommended-level">
+            </select>
+
+
+
+            <br>
+            <br>
+
+
+            <label>
+              Summary / Notes *
+            </label>
+
+
+            <textarea
+              id="evaluation-notes"
+              rows="7"
+              placeholder="Document evaluation, considerations, and final recommendation..."
+            ></textarea>
+
+
+
+            <label class="checkbox-row">
+
+
+              <input
+                type="checkbox"
+                id="share-with-pbp"
+                checked
+              >
+
+
+              Share evaluation summary with PBP
+
+
+            </label>
+
+
+
+            <div class="actions vertical">
+
+
+              <button
+                class="btn secondary"
+                id="save-eval-btn"
+              >
+                Save Draft
+              </button>
+
+
+              <button
+                class="btn primary"
+                id="submit-decision-btn"
+              >
+                Submit Decision & Notify PBP
+              </button>
+
+
+            </div>
+
+
+
+            <div
+              id="notification"
+              class="success-message hidden"
+            >
+
+              Decision submitted.
+              The PBP has been notified.
+
+            </div>
+
+
+          </section>
+
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       IMPORTANT: KEEP THIS IMMEDIATELY BEFORE </body>
+  ====================================================== -->
+
+  <script src="app.js"></script>
+
+
+</body>
+
+</html>
