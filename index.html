@@ -1,282 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Leveling Request Prototype</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-  <header>
-    <div>
-      <h1>Job Leveling Requests</h1>
-      <p class="prototype-label">Prototype — Dummy Data Only</p>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- HOME / REQUEST LIST -->
-    <section id="home-screen" class="screen active">
-
-      <div class="page-heading">
-        <div>
-          <h2>My Requests</h2>
-          <p>Submit and track job leveling requests.</p>
-        </div>
-
-        <button id="new-request-button" class="primary-button">
-          + New Request
-        </button>
-      </div>
-
-      <div class="card">
-
-        <table>
-          <thead>
-            <tr>
-              <th>Request ID</th>
-              <th>Employee</th>
-              <th>Current Role</th>
-              <th>Proposed Level</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-
-          <tbody id="request-table-body">
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-
-
-    <!-- NEW REQUEST FORM -->
-    <section id="form-screen" class="screen">
-
-      <div class="page-heading">
-        <div>
-          <h2>New Job Leveling Request</h2>
-          <p>Provide the information needed to evaluate this request.</p>
-        </div>
-      </div>
-
-      <div class="card">
-
-        <form id="request-form">
-
-          <div class="form-grid">
-
-            <div class="form-field">
-              <label for="employee-name">
-                Employee Name
-                <span class="required">*</span>
-              </label>
-
-              <input
-                id="employee-name"
-                type="text"
-                placeholder="Example: Jordan Lee"
-                required
-              >
-            </div>
-
-
-            <div class="form-field">
-              <label for="employee-id">
-                Employee ID
-              </label>
-
-              <input
-                id="employee-id"
-                type="text"
-                placeholder="Example: 123456"
-              >
-            </div>
-
-
-            <div class="form-field">
-              <label for="current-title">
-                Current Job Title
-                <span class="required">*</span>
-              </label>
-
-              <input
-                id="current-title"
-                type="text"
-                placeholder="Example: Senior Product Manager"
-                required
-              >
-            </div>
-
-
-            <div class="form-field">
-              <label for="current-level">
-                Current Level
-                <span class="required">*</span>
-              </label>
-
-              <select id="current-level" required>
-                <option value="">Select level</option>
-                <option>IC3</option>
-                <option>IC4</option>
-                <option>IC5</option>
-                <option>IC6</option>
-                <option>M3</option>
-                <option>M4</option>
-                <option>M5</option>
-              </select>
-            </div>
-
-
-            <div class="form-field">
-              <label for="proposed-title">
-                Proposed Job Title
-              </label>
-
-              <input
-                id="proposed-title"
-                type="text"
-                placeholder="Example: Principal Product Manager"
-              >
-            </div>
-
-
-            <div class="form-field">
-              <label for="proposed-level">
-                Proposed Level
-                <span class="required">*</span>
-              </label>
-
-              <select id="proposed-level" required>
-                <option value="">Select level</option>
-                <option>IC3</option>
-                <option>IC4</option>
-                <option>IC5</option>
-                <option>IC6</option>
-                <option>M3</option>
-                <option>M4</option>
-                <option>M5</option>
-              </select>
-            </div>
-
-          </div>
-
-
-          <div class="form-field full-width">
-            <label for="rationale">
-              Business Rationale
-              <span class="required">*</span>
-            </label>
-
-            <textarea
-              id="rationale"
-              rows="6"
-              placeholder="Describe why a leveling review is being requested..."
-              required
-            ></textarea>
-
-            <div class="help-text">
-              Include changes in scope, complexity, accountability, or organizational impact.
-            </div>
-          </div>
-
-
-          <div class="button-row">
-
-            <button
-              type="button"
-              id="cancel-button"
-              class="secondary-button">
-              Cancel
-            </button>
-
-            <button
-              type="submit"
-              class="primary-button">
-              Review Request
-            </button>
-
-          </div>
-
-        </form>
-
-      </div>
-
-    </section>
-
-
-    <!-- REVIEW SCREEN -->
-    <section id="review-screen" class="screen">
-
-      <div class="page-heading">
-        <div>
-          <h2>Review Request</h2>
-          <p>Confirm the information before submitting.</p>
-        </div>
-      </div>
-
-      <div class="card">
-
-        <div id="review-content">
-        </div>
-
-        <div class="button-row">
-
-          <button
-            id="edit-button"
-            class="secondary-button">
-            Back to Edit
-          </button>
-
-          <button
-            id="submit-button"
-            class="primary-button">
-            Submit Request
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONFIRMATION -->
-    <section id="confirmation-screen" class="screen">
-
-      <div class="confirmation-card">
-
-        <div class="checkmark">✓</div>
-
-        <h2>Request Submitted</h2>
-
-        <p>
-          Your job leveling request has been submitted successfully.
-        </p>
-
-        <p>
-          Request ID:
-          <strong id="confirmation-request-id"></strong>
-        </p>
-
-        <button
-          id="return-home-button"
-          class="primary-button">
-          Return to My Requests
-        </button>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <script src="app.js"></script>
-
-</body>
-</html>
+A
+Job Leveling
+PBP View Comp Team View
+Prototype only
+Dummy data
+Job Leveling Request
+Prototype integrated conceptually with Workday, Aware, and Talent Review.
+
+JL   Jordan Lee
+PBP View
+Submit and track a job leveling request.
+
++ New Request
+All (4) Draft (1) In Review (1) Completed (2)
+Request ID	Employee	Current Role	Proposed Level	Status	Updated
+1 Employee
+2 Proposed Role
+3 Rationale
+4 Talent Review
+5 Review
+1. Find Employee
+Employee ID *
+123456
+ Search
+Demo behavior: entering 123456 retrieves dummy employee information.
+Employee Information (from Workday)
+Retrieved
+NameJordan Lee
+Employee ID123456
+LocationSan Francisco (US)
+Current Job TitleSenior Product Manager
+Current LevelP6
+Job FamilyProduct
+Current ManagerTaylor Kim
+Manager TitleDirector, Product Management
+Current Organization Chart (from Aware)
+Read only
+Taylor Kim Director, Product Management · M4
+Jordan Lee Senior Product Manager · P6
+Alex WongProduct Manager · P4
+Morgan PatelProduct Manager · P4
+Sam LiuAssociate PM · P3
+2. Proposed Role
+Proposed Job Title * 
+Principal Product Manager
+Proposed Level * 
+Job Family * 
+Product
+Proposed Manager * 
+Chris Wong
+Manager Title 
+VP, Product Management
+Proposed Organization Chart (editable preview)
+Reset to Current
+Chris Wong VP, Product Management · VP2
+Jordan Lee Principal Product Manager · P7
+Alex WongProduct Manager · P4
+Morgan PatelProduct Manager · P4
+Sam LiuAssociate PM · P3
+3. Business Rationale
+Jordan has taken on significantly expanded scope over the past year, including leading a new strategic initiative, managing a larger team, and increasing cross-functional impact. This request reflects the growth in responsibility, complexity, and business impact.
+4. Talent Review Summary (PBP only)
+View Full Talent Profile ↗
+Overall Rating High Performer
+Promotion Readiness Ready for Promotion
+Key Strengths
+Strategic thinking
+Influence and stakeholder management
+People leadership
+Execution and delivery
+Development Area
+Scale organizational impact.
+
+Save Draft Submit Request
+Comp Team View
+Review submitted requests, evaluate, and notify the PBP.
+
+Internal Review
+Review Queue
+Request	Employee	Current	Proposed	Status
+Request JL-1050
+Submitted by Taylor Kim (PBP)
+
+In Review
+EmployeeJordan Lee
+Employee ID123456
+LocationSan Francisco (US)
+Current RoleSenior Product Manager · P6
+Current ManagerTaylor Kim
+Proposed RolePrincipal Product Manager · P7
+Proposed ManagerChris Wong
+Current Org Chart
+Taylor KimM4
+Jordan LeeP6
+Proposed Org Chart
+Chris WongVP2
+Jordan LeeP7
+Current Job Description
+Senior Product Manager (P6)
+
+Leads product strategy and execution for a major product area.
+Proposed Job Description
+Principal Product Manager (P7)
+
+Defines long-term product strategy across multiple products or a major business area.
+Business Rationale
+Talent Review is intentionally not displayed in the Compensation Team view.
+Discussion & Evaluation
+Questions / Comments 
+Add questions or comments for the PBP...
+
+Sarah Smith · Compensation Partner
+Can you provide more detail on the scope of the new strategic initiative?
+
+Evaluation Result
+ Recommend Approval  Recommend Alternative  Not Approved
+Recommended Level 
+ Summary / Notes * 
+Document evaluation, considerations, and final recommendation...
+
+  Share evaluation summary with PBP
+Save Draft Submit Decision & Notify PBP
+Decision submitted. The PBP has been notified.
